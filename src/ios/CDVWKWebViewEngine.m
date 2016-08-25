@@ -309,6 +309,10 @@
 }
 
 #pragma mark WKNavigationDelegate implementation
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
+{
+    exit(0);
+}
 
 - (void)webView:(WKWebView*)webView didStartProvisionalNavigation:(WKNavigation*)navigation
 {
