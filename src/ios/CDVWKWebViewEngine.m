@@ -309,10 +309,6 @@
 }
 
 #pragma mark WKNavigationDelegate implementation
-- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
-{
-    exit(0);
-}
 
 - (void)webView:(WKWebView*)webView didStartProvisionalNavigation:(WKNavigation*)navigation
 {
@@ -345,7 +341,10 @@
 
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
-    [webView reload];
+//    [webView reload];
+    
+    NSURL *baseUrl = [NSURL fileURLWithPath:[[webView URL] path]];
+    [webView loadFileURL:baseUrl allowingReadAccessToURL:baseUrl];
 }
 
 - (BOOL)defaultResourcePolicyForURL:(NSURL*)url
