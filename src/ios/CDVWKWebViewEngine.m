@@ -341,10 +341,7 @@
 
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
-//    [webView reload];
-    
-    NSURL *baseUrl = [NSURL fileURLWithPath:[[webView URL] path]];
-    [webView loadFileURL:baseUrl allowingReadAccessToURL:baseUrl];
+    exit(0);
 }
 
 - (BOOL)defaultResourcePolicyForURL:(NSURL*)url
