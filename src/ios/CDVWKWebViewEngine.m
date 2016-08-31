@@ -341,6 +341,10 @@
 
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
+    BITMetricsManager *metricsManager = [[BITHockeyManager sharedHockeyManager] metricsManager];
+    NSString *eventName = @"DEV_WHITE_SCREEN_OF_DEATH";
+    [metricsManager trackEventWithName:eventName];
+    
     exit(0);
 }
 
