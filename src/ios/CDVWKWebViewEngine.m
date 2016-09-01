@@ -20,6 +20,7 @@
 #import "CDVWKWebViewEngine.h"
 #import "CDVWKWebViewUIDelegate.h"
 #import <Cordova/NSDictionary+CordovaPreferences.h>
+#import <HockeySDK/HockeySDK.h>
 
 #import <objc/message.h>
 
@@ -341,9 +342,9 @@
 
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
-    /*BITMetricsManager *metricsManager = [[BITHockeyManager sharedHockeyManager] metricsManager];
+    BITMetricsManager *metricsManager = [[BITHockeyManager sharedHockeyManager] metricsManager];
     NSString *eventName = @"DEV_WHITE_SCREEN_OF_DEATH";
-    [metricsManager trackEventWithName:eventName];*/
+    [metricsManager trackEventWithName:eventName];
     
     exit(0);
 }
